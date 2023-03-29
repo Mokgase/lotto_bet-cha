@@ -1,4 +1,5 @@
 import random
+import numpy
 def login():
     userName = input("Enter your name:")
     userSurname =("Enter you surname:")
@@ -6,8 +7,20 @@ def login():
 
 def initialize():
     theList =[]
-    prompt = input("Press Enter to begin")
-    if prompt == " ":
-        for i in range(1-59):
-            theList.append(random())
-        print(theList)
+    userInput = input("Press Enter to begin")
+    while True:
+        if userInput == "":
+            for i in range(6):
+                theList.append(random.randint(1-59))
+                finalList = numpy.array(theList)
+                content=str(finalList)
+                file.write(content + "\n")
+                file.close()
+            print ("here are the lucky lotto picks")
+            print(theList)
+        elif userInput != "":
+            print("Press enter if you want to begin")
+        else:
+            exit()
+
+
