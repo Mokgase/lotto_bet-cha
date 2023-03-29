@@ -8,8 +8,9 @@ def login():
     initialize()
 
 def initialize():
-    userInput = input("Press Enter to begin")
-    if userInput == "":
+    global userInput
+    userInput = input("Press B to begin: ")
+    if userInput == "b" or "B":
         looper()
     else:
         initialize()
