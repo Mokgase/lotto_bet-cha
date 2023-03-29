@@ -15,26 +15,35 @@ def initialize():
     else:
         initialize()
 
+
+    #  appender = "animeGenre.txt"
+    #  file = open(appender, "a")
+    #     title = input("Enter the anime you want to add to your list: ")
+    #     file.write(title + "\n")
+    #     file.close()
+
 def looper():
     theList =[]
     while True:
         for i in range(6):
-            theList.append(random.randint(1-59))
-            file=open("lottoList.txt", "a" + "\n")
-            file.write("theList")
+            theList.append(random.randint(1,59))
+            finalStrList = ' '.join(map(str,theList))
+            print(finalStrList)
+            appender = "lottoList.txt"
+            file=open(appender, "a")
+            print ("here are the lucky lotto picks")
+            file.write(finalStrList)
             file.close()
-        print ("here are the lucky lotto picks")
-        print(theList)
-        continuePrompt()
+            continuePrompt(userName,userSurname)
     
 
 def continuePrompt(userName,userSurname):
     listOfAnswers1=["Y","YES","Yes" ]
     listOfAnswers2=["N","NO","No","no","n"]
     userInput =input("Do you still want more lotto numbers?")
-    if userInput == listOfAnswers1:
+    if userInput == listOfAnswers1[0][1][2]:
         looper()
-    elif userInput == listOfAnswers2:
+    elif userInput == listOfAnswers2[0][1][2][3][4]:
         print("Alright then "+ userName + "" + userSurname + ".")
         exit()
         
