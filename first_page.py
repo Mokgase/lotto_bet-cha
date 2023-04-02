@@ -1,5 +1,4 @@
 import random
-import string
 
 def login():
     global userName
@@ -15,6 +14,7 @@ def initialize():
         if userInput == "":
             looper()
         else:
+            print("lets try again")
             initialize()
 
 
@@ -24,22 +24,49 @@ def initialize():
     #     file.write(title + "\n")
     #     file.close()
 
-def looper():
+def looper():        
     theList = []
-    finalList = []
     for i in range(6):
-        if i < range(6):
-            theList.append(random.randint(1,59))
-        else:
-            print("Done generating")
-        break
-    for x in theList:
-        finalList.append(str(x))
-        print("Here's your lucky lotto numbers "+finalList+" .")
-        theFile = "lottoList.txt"
-        file = open(theFile, "a")
-        file.write(finalList + "\n")
+        theList.append(random.randint(1,59))
+        finalStrList = ' '.join(map(str,theList))
+        print(finalStrList)
+        appender = "lottoList.txt"
+        file=open(appender, "a")
+        print ("here are the lucky lotto picks")
+        # the issue
+        file.write(finalStrList)
         file.close()
+    exit()
+    # theList =[]
+    # while True:
+    #     #generates 6 numbers and puts them in a list
+    #     for i in theList.range(6):
+    #         theList.append(random.randint(1,59))
+        
+    #     #itterates through the list and converts it to a string and writes it into a file
+    #     for x in theList:
+    #         finalPick = x
+    #         appender = "lottoList.txt"
+    #         file = open(appender, "a")
+    #         file.write(finalPick + "\n")
+    #         file.close()
+    #         print ("here are the lucky lotto picks" + "\n" + finalPick)
+    #     continuePrompt()
+
+
+    # theList = []
+    # for i in range(6):
+    #     i.append(random.randint(1,59))
+    #     print("Done generating")
+    #     break
+    # for x in theList:
+    #     finalList.append(str(x))
+    #     print(finalList)
+    #     print(finalList)
+    #     theFile = "lottoList.txt"
+    #     file = open(theFile, "a")
+    #     file.write(finalList)
+    #     file.close()
 
     #  theList = []
     #  i = 1
@@ -75,17 +102,7 @@ def looper():
     #     continuePrompt()
 
 
-        # for i in range(6):
-        #     theList.append(random.randint(1,59))
-        #     finalStrList = ' '.join(map(str,theList))
-        #     print(finalStrList)
-        #     appender = "lottoList.txt"
-        #     file=open(appender, "a")
-        #     print ("here are the lucky lotto picks")
-        #     # the issue
-        #     file.write(finalStrList)
-        #     file.close()
-        #     continuePrompt(userName,userSurname)
+
     
 
 def continuePrompt():
