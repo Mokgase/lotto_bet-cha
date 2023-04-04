@@ -31,12 +31,13 @@ def looper():
         finalStrList = ' '.join(map(str,theList))
         print(finalStrList)
         appender = "lottoList.txt"
-        file=open(appender, "a")
+        file=open(appender, 'w')
         print ("here are the lucky lotto picks")
         # the issue
         file.write(finalStrList)
+        file.write('\n')
         file.close()
-    exit()
+    continuePrompt()
     # theList =[]
     # while True:
     #     #generates 6 numbers and puts them in a list
@@ -106,19 +107,17 @@ def looper():
     
 
 def continuePrompt():
-    print("we here " + userName + " " + userSurname)
-    listOfAnswers1=["Y","YES","Yes","yes", "y"]
-    listOfAnswers2=["N","NO","No","no","n"]
-    userInput =input("Do you still want more lotto numbers?")
-    if userInput == listOfAnswers1[0] or [1] or[2] or [3] or [4]:
+    userInput =input("Do you still want more lotto numbers?: ")
+    if userInput == "Y" or "YES" or "Yes" or "yes" or "y":
+        print("okay here goes...")
         looper()
-    elif userInput == listOfAnswers2[0] or [1] or [2] or[3] or [4]:
-        print("Alright then "+ userName + "" + userSurname + ".")
+    else:
+        print("Alright then "+ userName + "" + userSurname + " goodbye.")
         exit()
         
 
-
+        
 login()
 initialize()
-looper()
-continuePrompt()
+# looper()
+# continuePrompt()
