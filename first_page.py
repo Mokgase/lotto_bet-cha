@@ -46,25 +46,30 @@ def continuePrompt():
     userInput =input("Do you still want more lotto numbers?: ")
     if userInput == "Y" or "YES" or "Yes" or "yes" or "y":
         print("okay here goes...")  
-    elif userInput == "N" or "YES" or "Yes" or "yes" or "y":
-        print("alright then")
-        options()
+        looper()
     else:
-        print("Alright then "+ userName + "" + userSurname + " goodbye.")
-        exit()
+        print(f"Alright then {userName} {userSurname}...")
+        options()
         
 def options():
+    # Array to hold items
+    moreOptionsArray = ["HELP","CLEAR","KILL","DISPLAY"]
+    
+    # Allow user to clear txt file
     theClearer = 'lottoList.txt'
-    optionsInput = input("Do you want to clear the lotto list?: ")
-    if optionsInput == "Y" or "YES" or "Yes" or "yes" or "y":
-        with open(theClearer, 'w') as file:
-            file.truncate(0)
-            print(f"Contents of {theClearer} cleared successfully...")
-            continuePrompt()
+    optionsInput = input("If there's anything more you want to do press Enter: ")
+    if optionsInput == "":
+        print("HELP - Displays extra functions of the program \n CLEAR - Clears all the data held within the file KILL - Kills the whole program \n DISPLAY- Displays all the numbers inside the file")
+        
+
+        # with open(theClearer, 'w') as file:
+        #     file.truncate(0)
+        #     print(f"Contents of {theClearer} cleared successfully...")
+        #     continuePrompt()
     elif optionsInput == "N" or "YES" or "Yes" or "yes" or "y":
         print(f"Goodbye {userName} {userSurname}.")
         exit()
-    # Allow user to clear txt file
+    
     # allow user to print numbers
     # allow user to kill program also
 
