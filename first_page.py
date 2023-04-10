@@ -10,16 +10,21 @@ def get_user_name():
     while len(surname)== 0:
         surname = input("Please enter your surname: ")
     return name & surname
-    
 
-def initialize():
+def initialize(name):
     while True :
-        userInput = input("Press Enter to begin: ")
-        if userInput == "":
-            looper()
-        else:
-            print("lets try again")
-            initialize()
+        prompt = input(f'{name}, please press Enter to begin.')
+        command = input(prompt)
+        while len(command) == 0 or not valid_command(command):
+            output(f'{name}, Please press Enter to begin, not "{command}"')
+            command = input(prompt)
+        return command.lower()
+    
+        # if userInput == "":
+        #     looper()
+        # else:
+        #     print("lets try again")
+        #     initialize()
 
 
     #  appender = "animeGenre.txt"
@@ -41,9 +46,6 @@ def looper():
         file.write(finalStrList)
         file.write('\n')
         file.close()
-
-
-    
 
 def continuePrompt(name,surname):
     prompt = '' + name + 'Do you still want more lotto numbers generated again?: '
@@ -127,6 +129,11 @@ def call_command(command_name):
 
 
 
+if __name__ == "__main__":
+    get_user_name()
+    
+
+    
 
 # # list of valid command names
 # valid_commands = ['off', 'help', 'replay', 'forward', 'back', 'right', 'left', 'sprint']
